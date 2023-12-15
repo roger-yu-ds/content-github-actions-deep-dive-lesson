@@ -4,11 +4,11 @@ on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        run: actions/checkout@v2
+    steps: 
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
       - name: Install libraries
@@ -24,16 +24,16 @@ jobs:
     needs: lint
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v2
         with:
           python-version: 3.8
       - name: Install libraries
         run: |
             cd function
             python -m pip install --upgrade pip
-            if [ -f requirements.txts ]; then pip install -r requirements.txt -t .; fi
+            if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi 
       - name: Zip bundle
         run: |
             cd function
