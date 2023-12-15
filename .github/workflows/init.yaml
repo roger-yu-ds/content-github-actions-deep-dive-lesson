@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        run: actions/checkout@v4
+        run: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -24,7 +24,7 @@ jobs:
     needs: lint
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
